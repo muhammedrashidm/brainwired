@@ -18,9 +18,11 @@ class UserRepository extends IUsersRepository {
       final res = await dio.get('/users');
       if (res.statusCode == 200) {
         final result = res.data as List<dynamic>;
-        for (var item in result) {
-          data.add(
-              UserResponse.fromJson(item as Map<String, dynamic>).toDomain());
+        if (result.isNotEmpty) {
+          for (var item in result) {
+            data.add(
+                UserResponse.fromJson(item as Map<String, dynamic>).toDomain());
+          }
         }
         return Right(data);
       } else {
@@ -28,7 +30,7 @@ class UserRepository extends IUsersRepository {
       }
     } on DioError catch (e) {
       return Left(Failure(e.response?.statusMessage ?? ''));
-    }catch (e) {
+    } catch (e) {
       return Left(Failure("Unknown Error"));
     }
   }

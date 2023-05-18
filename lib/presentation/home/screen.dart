@@ -28,6 +28,7 @@ class MyHomePage extends StatelessWidget {
             itemBuilder: (ctx, i) {
               final item = state.users[i];
               return ListTile(
+                trailing: const Icon(Icons.arrow_forward_ios),
                 leading: Hero(tag: "icon_${item.id}",
                 child: const Icon(Icons.person)),
                 title: Text(item.name),
