@@ -12,35 +12,39 @@ class DetailsScreen extends StatelessWidget {
       ),
       body: Center(
         child: Padding(
-          padding: EdgeInsets.symmetric(vertical: 16),
+          padding: const EdgeInsets.symmetric(vertical: 16),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               Hero(
                   tag: "icon_${data.id}",
-                  child: Icon(
+                  child: const Icon(
                     Icons.person,
                     size: 64,
                   )),
               Text(data.username),
               Text(data.email),
               Text(data.company.name),
-              SizedBox(
+              const SizedBox(
                 height: 20,
+              ),
+              const Icon(
+                Icons.location_on,
+                size: 26,
               ),
               Wrap(
                 children: [
                   Text(data.address.suite),
-                  SizedBox(
+                  const SizedBox(
                     width: 10,
                   ),
                   Text(data.address.street),
-                  SizedBox(
+                  const SizedBox(
                     width: 10,
                   ),
                   Text(data.address.city),
-                  SizedBox(
+                  const SizedBox(
                     width: 10,
                   ),
                   Text(data.address.zipcode),
